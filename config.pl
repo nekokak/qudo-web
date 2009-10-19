@@ -6,6 +6,7 @@ use Encode;
 use URI::Escape;
 
 my $home = container('home');
+my $db = $home->file('assets/db/qudo-web.db')->stringify;
 
 return +{
     view => {
@@ -24,6 +25,13 @@ return +{
             },
         },
     },
+    databases => [
+        +{
+            dsn      => 'dbi:SQLite:'.$db,
+            username => '',
+            password => '',
+        },
+    ],
     validator_message => +{
         param => +{
         },

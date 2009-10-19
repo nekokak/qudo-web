@@ -1,0 +1,9 @@
+[% WRAPPER wrapper.html;
+%]
+
+    [% FOR job IN job_list %]
+        [% job.job_id %] : [% job.job_uniqkey %]<br />
+    [% END %]
+
+[% END %]
+
