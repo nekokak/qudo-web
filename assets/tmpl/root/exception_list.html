@@ -1,8 +1,11 @@
 [% WRAPPER wrapper.html;
 %]
 
-    [% FOR exception IN exception_list %]
-        [% exception.func_id %]<br />
+    [% FOR dsn IN exception_list.keys %]
+        [% dsn %]<br />
+        [% FOR exception IN exception_list.item(dsn) %]
+          [% exception.id %]<br />
+        [% END %]
     [% END %]
 
 [% END %]

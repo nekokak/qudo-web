@@ -1,11 +1,11 @@
 package Qudo::Web::Container;
 use Kamui::Container -base;
-use Qudo;
+use Qudo::Web::Command;
 
 register 'qudo' => sub {
     my $self = shift;
 
-    Qudo->new(
+    Qudo::Web::Command->new(
         databases => $self->get('conf')->{databases}
     );
 };
