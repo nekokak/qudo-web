@@ -2,6 +2,7 @@ package Qudo::Web::Command;
 use strict;
 use warnings;
 use Qudo;
+# use DBI; ## for dsn.
 
 sub new {
     my ($class, %args) = @_;
@@ -11,6 +12,11 @@ sub new {
 }
 
 sub qudo { $_[0]->{qudo} }
+
+sub databases {
+    my $self = shift;
+    [sort $self->qudo->shuffled_databases];
+}
 
 sub job_list {
     my $self = shift;
